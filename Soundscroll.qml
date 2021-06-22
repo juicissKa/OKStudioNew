@@ -17,18 +17,28 @@ Flickable {
     signal soundIsNotAvailable(var soundNameError, var soundPathError)
     signal loadInterval(var interval)
 
+    //Количество загруженных звуков
     property int soundcount: 0
+
     property string soundpath: ""
+    //Массив содержит в себе указатели на динамически созданные звуки.
     property var sounds: []
+
+    //Хранит в себе представление всех треков ввиде булевых векторов,
+    //где true значит, что деление трека горит, а false - не горит.
     property var allTracks: []
+
+    //Количество треков по 40 делений
     property int tracksCount: 1
 
+    //Меняет интервал таймера
     function changeBpm(bpm) {
         timerBar.stopTimer()
         timerBar.beatsInterval = bpm
 
     }
 
+    //Создаёт новый проект
     function newProject() {
         for (var i = 0; i < sounds.length; i++) {
             sounds[i].destroy()
@@ -40,6 +50,7 @@ Flickable {
         loadSounds()
     }
 
+    //Загрузка готового проекта
     function loadProject() {
         for (var i = 0; i < sounds.length; i++) {
             sounds[i].destroy()
@@ -82,6 +93,7 @@ Flickable {
 
     }
 
+    //Сохранение проекта
     function saveProject() {
         getTracks()
         var soundnames = []
@@ -97,10 +109,12 @@ Flickable {
         allTracks = []
     }
 
+    //Возобновить таймер
     function playTrack() {
         timerBar.startTimer()
     }
 
+    //Добавить новый трек к каждому звуку
     function addNewTrack() {
         tracksCount = tracksCount + 1
         for (var i = 0; i < soundcount; i++) {
@@ -110,6 +124,7 @@ Flickable {
         timerBar.tracksCount = tracksCount
     }
 
+    //Удалить по треку у каждого звука
     function delNewTrack() {
         tracksCount = tracksCount - 1
         for (var i = 0; i < soundcount; i++) {
@@ -119,16 +134,19 @@ Flickable {
         timerBar.tracksCount = tracksCount
     }
 
+    //Остановить таймер
     function stopTimer() {
         timerBar.stopTimer()
         allTracks = []
     }
 
+    //Поставить таймер на паузу
     function pauseTimer() {
         timerBar.pauseTimer()
         allTracks = []
     }
 
+    //Загрузить стандартные звуки
     function loadSounds() {
         var soundPaths = helper.soundpack()
         var component = Qt.createComponent("Sound.qml")
@@ -145,6 +163,7 @@ Flickable {
 
     }
 
+    //Добавить свой звук
     function addSound() {
         var component = Qt.createComponent("Sound.qml")
         var soundPath = soundpath
@@ -160,6 +179,7 @@ Flickable {
         console.log(sounds)
     }
 
+    //Получить все треки
     function getTracks() {
             for (var i = 0; i < soundcount; i++) {
                 try {

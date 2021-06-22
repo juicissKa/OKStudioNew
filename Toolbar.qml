@@ -24,6 +24,7 @@ Rectangle {
 
     property bool isPlaying: false
 
+    //Установить новое значение интервала в текстовое поле
     function setInterval(interval) {
         bpmMeter.bpm = interval
     }

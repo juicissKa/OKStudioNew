@@ -11,6 +11,7 @@ RowLayout {
     property int tracksCount: 1
     property var trackflags: []
 
+    //Получить трек звука
     function getTrack() {
         var lightedTrackflags = []
         for (var i = 0; i < 40 * tracksCount; i++) {
@@ -19,6 +20,7 @@ RowLayout {
         return lightedTrackflags
     }
 
+    //Добавить новый трек к звуку
     function addNewTrack() {
         var component = Qt.createComponent("Trackflag.qml")
         for (var i = 0; i < 40; i++) {
@@ -28,6 +30,7 @@ RowLayout {
 
     }
 
+    //Удалить последний трек звука
     function delNewTrack() {
         for (var i = 40 * tracksCount - 1; i >= 40 * (tracksCount - 1); i--) {
             trackflags[i].destroy()
@@ -36,6 +39,7 @@ RowLayout {
 
     }
 
+    //Загрузить трек
     function lightTrack(lightTrackflags) {
         for (var i = 0; i < 40 * tracksCount; i++) {
             trackflags[i].lighted = lightTrackflags[i]
