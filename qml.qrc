@@ -1,0 +1,26 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>Toolbar.qml</file>
+        <file>Soundscroll.qml</file>
+        <file>Sound.qml</file>
+        <file>Trackflag.qml</file>
+        <file>Lower_toolbar.qml</file>
+    </qresource>
+    <qresource prefix="/resources">
+        <file>Karma (Drum Kit)/SD - Adios.wav</file>
+        <file>Karma (Drum Kit)/Crash/CR - Breeze.wav</file>
+        <file>Karma (Drum Kit)/HiHats/HH - Burnt.wav</file>
+        <file>2.png</file>
+        <file>addtrack.png</file>
+        <file>deltrack.png</file>
+        <file>loadsound.png</file>
+        <file>pause.png</file>
+        <file>saveproj.png</file>
+        <file>loadproj.png</file>
+        <file>new.png</file>
+        <file>Karma (Drum Kit)/Claps/Clp - Poof.wav</file>
+        <file>Karma (Drum Kit)/Snares/SD - BabyBoy.wav</file>
+        <file>Karma (Drum Kit)/Snares/SD - Guap.wav</file>
+    </qresource>
+</RCC>
